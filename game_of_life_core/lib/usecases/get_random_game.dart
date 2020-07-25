@@ -1,1 +1,3 @@
-class GetRandomGame {}
+class GetRandomGame {
+  call() {}
+}
