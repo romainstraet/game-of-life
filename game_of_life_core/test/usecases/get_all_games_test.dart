@@ -21,7 +21,7 @@ void main() {
   group('Testing GetAllGames().call()', () {
     test('Should return a list of games', () async {
       when(mockRepo.getAllGames()).thenAnswer((_) => Future.value([game1, game2]));
-      final Map<String, List<List<CellState>>> games = GetAllGames(mockRepo).call();
+      final List<Map<String, List<List<CellState>>>> games = await GetAllGames(mockRepo).call();
       expect(games.length, equals(2));
       expect(games[0], equals(game1));
       expect(games[1], equals(game2));
