@@ -1,0 +1,8 @@
+name: game_of_life_repository
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  game_of_life_core:
+    path: ../game_of_life_core

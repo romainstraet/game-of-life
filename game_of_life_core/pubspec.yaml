@@ -1,5 +1,8 @@
 name: game_of_life_core
 
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
 dev_dependencies:
   test: ^1.14.4
   mockito: ^4.1.1
