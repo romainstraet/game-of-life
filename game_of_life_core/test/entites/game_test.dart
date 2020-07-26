@@ -73,14 +73,14 @@ void main() {
       ];
       final List<Map<String, int>> scenarios = <Map<String, int>>[
         <String, int>{'row': 0, 'col': 0, 'expectedNeighbour': 3},
-        // <String, int>{'row': 0, 'col': 1, 'expectedNeighbour': 5},
-        // <String, int>{'row': 0, 'col': 2, 'expectedNeighbour': 3},
-        // <String, int>{'row': 1, 'col': 0, 'expectedNeighbour': 5},
-        // <String, int>{'row': 1, 'col': 1, 'expectedNeighbour': 8},
-        // <String, int>{'row': 1, 'col': 2, 'expectedNeighbour': 5},
-        // <String, int>{'row': 2, 'col': 0, 'expectedNeighbour': 3},
-        // <String, int>{'row': 2, 'col': 1, 'expectedNeighbour': 5},
-        // <String, int>{'row': 2, 'col': 2, 'expectedNeighbour': 3},
+        <String, int>{'row': 0, 'col': 1, 'expectedNeighbour': 5},
+        <String, int>{'row': 0, 'col': 2, 'expectedNeighbour': 3},
+        <String, int>{'row': 1, 'col': 0, 'expectedNeighbour': 5},
+        <String, int>{'row': 1, 'col': 1, 'expectedNeighbour': 8},
+        <String, int>{'row': 1, 'col': 2, 'expectedNeighbour': 5},
+        <String, int>{'row': 2, 'col': 0, 'expectedNeighbour': 3},
+        <String, int>{'row': 2, 'col': 1, 'expectedNeighbour': 5},
+        <String, int>{'row': 2, 'col': 2, 'expectedNeighbour': 3},
       ];
 
       for (final Map<String, int> scenario in scenarios) {
