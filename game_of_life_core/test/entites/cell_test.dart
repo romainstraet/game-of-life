@@ -1,3 +1,4 @@
+import 'package:game_of_life_core/entites/cell.dart';
 import 'package:game_of_life_core/game_of_life_core.dart';
 import 'package:test/test.dart';
 
