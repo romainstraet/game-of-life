@@ -25,7 +25,7 @@ void main() {
       ];
 
       for (int col = 0; col < game4x4BottomIsAlive[0].length; col++) {
-        test('then cell at (0,$col) should have 2 alive neighbours', () {
+        test('Then cell at (0,$col) should have 2 alive neighbours', () {
           expect(
             Game(game4x4BottomIsAlive).countAliveNeighboursOfCell(0, col),
             2,
@@ -40,12 +40,29 @@ void main() {
       ];
 
       for (int col = 0; col < game4x4TopIsAlive[1].length; col++) {
-        test('then cell at (1,$col) should have 2 alive neighbours', () {
+        test('Then cell at (1,$col) should have 2 alive neighbours', () {
           expect(
             Game(game4x4TopIsAlive).countAliveNeighboursOfCell(1, col),
             2,
           );
         });
+      }
+    });
+    group('Given a 4x4 game with only alive cells', () {
+      final List<List<CellState>> game4x4AllAlive = <List<CellState>>[
+        <CellState>[CellState.alive, CellState.alive],
+        <CellState>[CellState.alive, CellState.alive],
+      ];
+
+      for (int row = 0; row < game4x4AllAlive.length; row++) {
+        for (int col = 0; col < game4x4AllAlive[row].length; col++) {
+          test('Then cell at ($row,$col) should have 3 alive neighbours', () {
+            expect(
+              Game(game4x4AllAlive).countAliveNeighboursOfCell(row, col),
+              3,
+            );
+          });
+        }
       }
     });
   });
