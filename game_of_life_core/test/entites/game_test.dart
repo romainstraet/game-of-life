@@ -18,5 +18,20 @@ void main() {
         }
       }
     });
+    group('Given a 4x4 game with alive cells on bottom row', () {
+      final List<List<CellState>> game4x4BottomIsAlive = <List<CellState>>[
+        <CellState>[CellState.dead, CellState.dead],
+        <CellState>[CellState.alive, CellState.alive],
+      ];
+
+      for (int col = 0; col < game4x4BottomIsAlive[0].length; col++) {
+        test('Cell(0,$col) should have 2 alive neighbour', () {
+          expect(
+            Game(game4x4BottomIsAlive).countAliveNeighboursOfCell(0, col),
+            2,
+          );
+        });
+      }
+    });
   });
 }
