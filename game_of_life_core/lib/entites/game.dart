@@ -7,10 +7,7 @@ class Game {
   int countAliveNeighboursOfCell(int row, int col) {
     final CellState currentCell = _state[row][col];
     final List<List<CellState>> reducedGame = _reduceGameToNeighboursOfCell(row, col);
-    int numOfAliveCells = 0;
-    for (final List<CellState> row in reducedGame) {
-      numOfAliveCells += row.where((CellState el) => el == CellState.alive).length;
-    }
+    int numOfAliveCells = _countAliveNeighboursInGame(reducedGame);
     if (currentCell == CellState.alive) {
       numOfAliveCells -= 1;
     }
@@ -25,10 +22,18 @@ class Game {
     for (final List<CellState> rowList in reducedRows) {
       final int startColIndexIncl = _isFirstCol(col) ? col : col - 1;
       final int endColIndexIncl = _isLastCol(col, rowList.length) ? col + 1 : col + 2;
-      final List<CellState> reducedRow = rowList.getRange(startColIndexIncl, endColIndexIncl).toList();
-      reducedGameState.add(reducedRow);
+      final List<CellState> reducedRowWithLimitedCol = rowList.getRange(startColIndexIncl, endColIndexIncl).toList();
+      reducedGameState.add(reducedRowWithLimitedCol);
     }
     return reducedGameState;
+  }
+
+  int _countAliveNeighboursInGame(List<List<CellState>> game) {
+    int countAliveCell = 0;
+    for (final List<CellState> row in game) {
+      countAliveCell += row.where((CellState el) => el == CellState.alive).length;
+    }
+    return countAliveCell;
   }
 
   bool _isFirstRow(int row) {
