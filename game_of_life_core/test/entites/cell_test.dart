@@ -26,5 +26,8 @@ void main() {
     test('When cell is dead and have 2 alive neighbours, Should return dead state', () {
       expect(Cell(CellState.dead).getNextState(2), CellState.dead);
     });
+    test('When cell is dead and have 3 alive neighbours, Should return alive state', () {
+      expect(Cell(CellState.dead).getNextState(3), CellState.alive);
+    });
   });
 }
