@@ -25,9 +25,24 @@ void main() {
       ];
 
       for (int col = 0; col < game4x4BottomIsAlive[0].length; col++) {
-        test('Cell(0,$col) should have 2 alive neighbour', () {
+        test('then cell at (0,$col) should have 2 alive neighbours', () {
           expect(
             Game(game4x4BottomIsAlive).countAliveNeighboursOfCell(0, col),
+            2,
+          );
+        });
+      }
+    });
+    group('Given a 4x4 game with alive cells on top row', () {
+      final List<List<CellState>> game4x4TopIsAlive = <List<CellState>>[
+        <CellState>[CellState.alive, CellState.alive],
+        <CellState>[CellState.dead, CellState.dead],
+      ];
+
+      for (int col = 0; col < game4x4TopIsAlive[1].length; col++) {
+        test('then cell at (1,$col) should have 2 alive neighbours', () {
+          expect(
+            Game(game4x4TopIsAlive).countAliveNeighboursOfCell(1, col),
             2,
           );
         });
