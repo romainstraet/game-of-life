@@ -66,7 +66,7 @@ void main() {
       }
     });
     group('Given a 3x3 game with only alive cells', () {
-      final List<List<CellState>> game2x2AllAlive = <List<CellState>>[
+      final List<List<CellState>> game3x3AllAlive = <List<CellState>>[
         <CellState>[CellState.alive, CellState.alive, CellState.alive],
         <CellState>[CellState.alive, CellState.alive, CellState.alive],
         <CellState>[CellState.alive, CellState.alive, CellState.alive],
@@ -89,7 +89,37 @@ void main() {
         final int expectedNeighbour = scenario['expectedNeighbour'];
         test('Then cell at ($row,$col) should have $expectedNeighbour alive neighbours', () {
           expect(
-            Game(game2x2AllAlive).countAliveNeighboursOfCell(row, col),
+            Game(game3x3AllAlive).countAliveNeighboursOfCell(row, col),
+            expectedNeighbour,
+          );
+        });
+      }
+    });
+    group('Given a 4x4 game with only alive cells random case*', () {
+      final List<List<CellState>> game4x4AllAlive = <List<CellState>>[
+        <CellState>[CellState.dead, CellState.alive, CellState.alive, CellState.dead],
+        <CellState>[CellState.alive, CellState.dead, CellState.alive, CellState.alive],
+        <CellState>[CellState.alive, CellState.dead, CellState.dead, CellState.alive],
+        <CellState>[CellState.dead, CellState.alive, CellState.dead, CellState.alive],
+      ];
+      final List<Map<String, int>> randomScenarios = <Map<String, int>>[
+        <String, int>{'row': 0, 'col': 0, 'expectedNeighbour': 2},
+        <String, int>{'row': 1, 'col': 1, 'expectedNeighbour': 5},
+        <String, int>{'row': 2, 'col': 2, 'expectedNeighbour': 5},
+        <String, int>{'row': 3, 'col': 3, 'expectedNeighbour': 1},
+        <String, int>{'row': 3, 'col': 0, 'expectedNeighbour': 2},
+        <String, int>{'row': 2, 'col': 1, 'expectedNeighbour': 4},
+        <String, int>{'row': 1, 'col': 2, 'expectedNeighbour': 4},
+        <String, int>{'row': 0, 'col': 3, 'expectedNeighbour': 3},
+      ];
+
+      for (final Map<String, int> scenario in randomScenarios) {
+        final int row = scenario['row'];
+        final int col = scenario['col'];
+        final int expectedNeighbour = scenario['expectedNeighbour'];
+        test('Then cell at ($row,$col) should have $expectedNeighbour alive neighbours', () {
+          expect(
+            Game(game4x4AllAlive).countAliveNeighboursOfCell(row, col),
             expectedNeighbour,
           );
         });
