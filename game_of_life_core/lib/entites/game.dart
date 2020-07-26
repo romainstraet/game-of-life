@@ -5,6 +5,8 @@ class Game {
   final List<List<CellState>> _state;
 
   int countAliveNeighboursOfCell(int row, int col) {
-    return 0;
+    final List<CellState> lastRow = _state[_state.length - 1];
+    final int numOfAliveCellsOnBottomRow = lastRow.where((CellState el) => el == CellState.alive).length;
+    return numOfAliveCellsOnBottomRow;
   }
 }
