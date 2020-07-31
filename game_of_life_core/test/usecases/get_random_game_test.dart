@@ -17,7 +17,7 @@ void main() {
       expect(numOfAliveCellsInFirstRow, lessThan(30));
       expect(numOfDeadCellsInLastRow, lessThan(30));
     });
-    test('Should return a customatized grid game', () {
+    test('Should return a customatized grid game with random state', () {
       final List<List<CellState>> game1 = GetRandomGame(20, 20).call();
       expect(game1.length, equals(20));
       expect(game1[0].length, equals(20));

@@ -2,7 +2,7 @@ import 'cell_state.dart';
 
 class Cell {
   Cell(this._currentState);
-  CellState _currentState;
+  final CellState _currentState;
 
   CellState getNextState(int numOfNeighbours) {
     if (_currentState == CellState.dead) {

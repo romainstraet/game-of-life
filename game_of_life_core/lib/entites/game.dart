@@ -7,7 +7,7 @@ class Game {
   int countAliveNeighboursOfCell(int row, int col) {
     final CellState currentCell = _state[row][col];
     final List<List<CellState>> reducedGame = _reduceGameToNeighboursOfCell(row, col);
-    int numOfAliveCells = _countAliveNeighboursInGame(reducedGame);
+    int numOfAliveCells = _countAliveCellsInGame(reducedGame);
     if (currentCell == CellState.alive) {
       numOfAliveCells -= 1;
     }
@@ -28,7 +28,7 @@ class Game {
     return reducedGameState;
   }
 
-  int _countAliveNeighboursInGame(List<List<CellState>> game) {
+  int _countAliveCellsInGame(List<List<CellState>> game) {
     int countAliveCell = 0;
     for (final List<CellState> row in game) {
       countAliveCell += row.where((CellState el) => el == CellState.alive).length;
