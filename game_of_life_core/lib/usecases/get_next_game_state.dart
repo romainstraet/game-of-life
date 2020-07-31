@@ -6,7 +6,7 @@ class GetNextGameState {
   GetNextGameState(this._initialState);
   final List<List<CellState>> _initialState;
 
-  List<List<CellState>> execute() {
+  List<List<CellState>> call() {
     final List<List<CellState>> nextGameState = <List<CellState>>[];
     final Game game = Game(_initialState);
     for (int row = 0; row < _initialState.length; row++) {
